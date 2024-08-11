@@ -1,6 +1,10 @@
 'use client';
 import { useState } from "react";
 import type { MouseEventHandler } from "react";
+
+// Ejemplo utilizando una librería sin tipos.
+// Realmente no hace falta su uso.
+import { random } from "lodash";
 import { LazyImage } from "@/components/RandomFox";
 
 
@@ -13,7 +17,7 @@ const generateId = (): string => {
 };
 
 // random number from 1 to 122
-const random = () => Math.floor(Math.random() * 122) + 1;
+const myRandom = () => random(1, 122);
 
 // type ImageItem = {
 //   id: string;
@@ -25,7 +29,7 @@ export default function Home() {
 
   const addNewFox: MouseEventHandler<HTMLButtonElement> = () => {
     const id = generateId();
-    const url = `https://randomfox.ca/images/${random()}.jpg`;
+    const url = `https://randomfox.ca/images/${myRandom()}.jpg`;
     setImages([...images, { id, url }]);
   };
 
